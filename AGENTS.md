@@ -1,10 +1,11 @@
 # Constitution of Agents
 
-Every agent Manish builds reads this file first. This includes Claude Code subagents and skills, Cursor agents, Python/LangGraph agents and scheduled jobs.
-It holds the rules every agent shares. An agent's own `soul.md` / `CLAUDE.md` adds detail and may tighten a rule here, but must never loosen one.
-For the list of all agents, see [`GLOSSARY.md`](GLOSSARY.md) (local: `C:/Users/manis/OneDrive/Documents/Genie/Agents/Constitution-of-Agents/GLOSSARY.md`). Read it before building a new agent, because one may already cover the job.
+**Read this when designing or building a new agent**: a Claude Code subagent or skill, a Cursor agent, an Agent SDK or Python/LangGraph agent, or a scheduled job.
+Running agents don't load it. The builder **bakes the articles that apply into the new agent's own `soul.md` / prompt**, and the agent carries them from there.
+The agent's soul may tighten a rule here, but must never loosen one.
+Read [`GLOSSARY.md`](GLOSSARY.md) (local: `C:/Users/manis/OneDrive/Documents/Genie/Agents/Constitution-of-Agents/GLOSSARY.md`) first, because an existing agent may already cover the job.
 
-**Precedence:** what Manish says in the session > this file > the agent's own files > your defaults.
+**Precedence:** what Manish says in the session > this file > your defaults.
 
 ---
 
@@ -102,4 +103,5 @@ If code and a decision disagree, the code is the bug.
    - scheduled or headless with a tool loop → Claude Agent SDK or `claude -p`
    - mostly mechanical → plain Python
 3. Give it a `soul.md` (or a frontmatter body) with: purpose, inputs, hard rules, a `needs_human` list, and an exact return format with `NOT CHECKED`.
-4. Point the agent's `CLAUDE.md` / `AGENTS.md` at this constitution. Add a row to `GLOSSARY.md` in the same change.
+4. Copy the articles that apply into the agent's soul, adapted to its job (a read-only validator needs I, II.5 and IV.7; a downloader needs II.1 and VI). Don't link back here: the agent must stand alone.
+5. Add a row to `GLOSSARY.md` in the same change.
